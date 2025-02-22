@@ -1,0 +1,676 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --BGCOLOR: #333333;
+  --CONTAINERBG: #444444;
+  --CONTAINERSHADOW: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --CONTAINERBORDER: #45a29e;
+  --INPUTBG: #555555;
+  --DELETEBTN: red;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--BGCOLOR); /* Grey background */
+  color: #c5c6c7;
+  font-family: 'Roboto', sans-serif; /* More neutral font */
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--BGCOLOR);
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  color: white;
+  font-family: cursive;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 2.5rem; /* Same as "Our Memos" size */
+}
+
+/* Login Container Styling */
+.login-container, .registration-container {
+  background-color: var(--CONTAINERBG); /* Darker background for form */
+  border-radius: 10px;
+  padding: 3rem 4rem;
+  max-width: 450px;
+  width: 100%;
+  margin: 4% auto; /* Slightly moved upward */
+  box-shadow: var(--CONTAINERSHADOW);
+}
+
+.input-field {
+  margin-bottom: 1.2rem; /* Adjust space between input fields */
+}
+
+label {
+  display: block;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+  background-color: #0b0c10;
+  border: 1px solid var(--CONTAINERBORDER);
+  border-radius: 5px;
+  color: #c5c6c7;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #66b2b2;
+}
+
+.register-btn{
+  margin-bottom: 10px;
+}
+
+button.login-btn, .post-btn {
+  width: 35%;
+  padding: 1.2rem;
+  background-color: var(--CONTAINERBORDER);
+  border: none;
+  border-radius: 5px;
+  color: #0b0c10;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1.5rem; /* Adjust space between input fields and button */
+}
+
+.post-btn {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+button.login-btn:hover, .register-btn:hover, .attach-btn:hover, .post-btn:hover {
+  background-color: #66b2b2;
+}
+
+.regLog {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.regLog p {
+  color: white;
+  font-size: 1rem;
+}
+
+.register-link {
+  color: var(--CONTAINERBORDER);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  color: #66b2b2;
+}
+
+.register-btn {
+  width: 35%;
+  padding: 1.2rem;
+  background-color: var(--CONTAINERBORDER);
+  border: none;
+  border-radius: 5px;
+  color: #0b0c10;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1.5rem;
+}
+
+.delete-btn-settings {
+  background: var(--DELETEBTN);
+  width: 35%;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  color: #0b0c10;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 1.5rem;
+}
+
+.delete-btn-settings:hover  {
+  background-color: rgb(255, 45, 45);
+}
+
+/* Mobile-first design */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 2rem;
+    max-width: 95%;
+  }
+
+  button.login-btn {
+    padding: 1rem;
+  }
+
+  .input-field input {
+    padding: 0.8rem;
+  }
+}
+
+/* Desktop View */
+@media (min-width: 768px) {
+  .login-container {
+    max-width: 500px; /* Increase form width */
+    padding: 3rem;
+  }
+
+  button.login-btn {
+    font-size: 1.1rem;
+    padding: 1.2rem;
+  }
+
+  .input-field input {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+}
+
+/* General styles for other components */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  position: fixed;
+  z-index:1000;
+  top:0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav ul {
+  color: white;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 0.6rem;
+}
+
+nav ul a {
+  color: white;
+}
+
+.navspacer{
+  padding-top: 120px;
+}
+
+.logospacer {
+  padding-top: 50px;
+}
+
+
+main{
+  /* position: absolute; */
+  /* top: 120px; */
+  width: 100%;
+  overflow-y: auto;
+  height: calc(100vh - 120px);
+}
+.group-heading {
+  display: flex;
+  margin-left: 25%;
+  margin-right: 25%;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.group-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 0;
+}
+
+.memo a, .group-heading a {
+  color: white;
+  font-size: xx-large;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  margin: 1rem;
+  align-items: center;
+}
+
+label {
+  color: white;
+  font-family: monospace;
+  font-size: medium;
+  margin-bottom: 0.2rem;
+}
+
+input, textarea {
+  background-color: #0b0c10;
+  border: 1px solid var(--CONTAINERBORDER);
+  border-radius: 5px;
+  color: #c5c6c7;
+  font-family: monospace;
+  padding: 0.2rem;
+}
+.group-name{
+  width: 23rem;
+  height: 3rem;
+}
+textarea {
+  height: 13rem;
+  width: 23rem;
+  resize: none;
+}
+
+input::placeholder, textarea::placeholder {
+  font-family: monospace;
+  font-size: medium;
+  color: #c5c6c7;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+div {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 1rem;
+}
+
+button {
+  width: 30%;
+  padding: 0.2rem;
+  font-family: cursive;
+  color: #0b0c10;
+  background: var(--CONTAINERBORDER);
+  border-radius: 5px;
+  border: none;
+}
+
+.error-container {
+  display: flex;
+  gap: 1rem;
+}
+
+p  {
+  color: #c5c6c7;
+  font-family: monospace;
+}
+
+.error-container a, .nomemo-container a, .profile-btn a {
+  width: 30%;
+  padding: 0.2rem;
+  font-family: cursive;
+  color: #0b0c10;
+  background: var(--CONTAINERBORDER);
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.profile-btn a {
+  width: 40%;
+}
+
+/* .registration-container {
+  background-color: var(--CONTAINERBG);
+  border-radius: 10px;
+  padding: 3rem 4rem;
+  max-width: 450px;
+  width: 100%;
+  margin: -2% auto;
+  box-shadow: var(--CONTAINERSHADOW);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+
+.regLog a {
+  text-decoration: none;
+  color: var(--CONTAINERBORDER);
+}
+
+/* Adjust Memo Container Width */
+ .memo-container { 
+  /* border: 1px solid var(--CONTAINERBORDER); */
+  background-color: var(--CONTAINERBG);
+  box-shadow: var(--CONTAINERSHADOW);
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: calc(50% - 113.4px); /* Reduce the width by 3 cm (113.4px) */
+  height: auto;
+  margin: 0 auto 20px;
+  box-sizing: border-box;
+} 
+
+.search-container {
+  border-radius: 5px;
+  width: calc(50% - 113.4px); /* Reduce the width by 3 cm (113.4px) */
+  height: auto;
+  margin: 0 auto 20px;
+  box-sizing: border-box;
+}
+
+.search-container input {
+  background-color: var(--INPUTBG);
+  border: none;
+  padding: 0.5rem;
+  color: white;
+}
+
+input, textarea {
+  background-color: var(--INPUTBG);
+  border: none;
+  padding: 0.5rem;
+  color: white;
+  font-size: large;
+}
+
+.search-container input::placeholder, input::placeholder, textarea::placeholder {
+  color: white;
+  font-size: large;
+}
+
+.commentBox {
+  margin: 0;
+}
+
+.comments-container {
+  margin: 0;
+}
+
+.commentContainer {
+  border: 1px solid var(--CONTAINERBORDER);
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 100%;  
+  min-height: 50px;  
+  margin-bottom: 10px; 
+  box-sizing: border-box; 
+  overflow: hidden; 
+}
+
+.memo-details {
+  font-size: small;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comment-details {
+  font-size: x-small;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.memo p {
+  color: white;
+}
+
+.comment p {
+  color: white;
+}
+
+.nomemo-container {
+  display: flex;
+  gap: 1rem;
+  border: 1px solid var(--CONTAINERBORDER);
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: calc(50% - 113.4px); /* Reduce the width by 3 cm (113.4px) */
+  height: auto;
+  margin: 0 auto 20px;
+  box-sizing: border-box;
+}
+
+.memo, .comment {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.memo-delete, .comment-delete, .remove-user {
+  background-color: transparent;
+  font-size: large;
+  color: var(--DELETEBTN);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.memo-delete:hover, .comment-delete:hover, .remove-user:hover {
+  color: rgb(255, 45, 45);
+}
+
+.add-user {
+  color: green;
+  border: none;
+  background-color: transparent;
+  font-size: large;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-user:hover {
+  color: rgb(23, 158, 23);
+}
+
+/* Profile container centered */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--CONTAINERBG); /* Same as the page background for seamless blending */
+  border-radius: 10px;
+  box-shadow: none; /* Remove the box shadow to make it blend */
+}
+
+/* Heading style */
+.profile-container h2 {
+  color: white;
+  font-family: cursive;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Profile info text style */
+.profile-container p {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* Profile Settings Button */
+.profile-btn a {
+  display: inline-flex;
+  padding: 1.5rem 3rem;
+  background-color: var(--CONTAINERBORDER);
+  font-size: 1.5rem;
+  font-family: cursive;
+  color: #0b0c10;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+  white-space: nowrap;
+  text-align: center;
+  margin-top: 2rem;
+  width: auto;
+}
+
+/* Hover effect for the button */
+.profile-btn a:hover {
+  background-color: #66b2b2;
+  transform: scale(1.05);
+}
+
+.profile-btn a:active {
+  transform: scale(1);
+}
+
+
+table {
+  width: 50%;
+  margin-left: 25%;
+  /* position: absolute; */
+  /* top: 120px; */
+  /* overflow-y: auto; */
+}
+
+
+th {
+  border: 1px solid var(--CONTAINERBORDER);
+  color: white;
+  font-family: cursive;
+}
+
+td {
+  border: 1px solid var(--CONTAINERBORDER);
+  color: white;
+  font-family: cursive;
+  text-wrap: wrap;
+  font-size: small;
+  padding: 0.25rem;
+}
+
+.likeComm {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: monospace;
+  font-size: x-large;
+  margin-bottom: 0;
+}
+
+.likes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0;
+}
+
+.likeButton {
+  width: 1.5rem;
+  font-family: cursive;
+  background-color: transparent;
+  font-size: large;
+  color: var(--CONTAINERBORDER);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.likeButton:hover, .likeNum:hover, .showAdmin a:hover, .editorStatus:hover, .download-btn:hover {
+  color: #66b2b2;
+}
+
+.likeNum {
+  margin: 0;
+  padding: 0;
+  font-family: cursive;
+  font-size: large;
+  color: var(--CONTAINERBORDER);
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.comments {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0;
+}
+
+.members-buttons {
+  gap: 0.5rem;
+  margin-top: 5px;
+  align-items: center;
+  }
+  
+.downloadContainer {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--CONTAINERBORDER);
+    padding: 0.5rem;
+    color: var(--CONTAINERBORDER);
+    font-size: small;
+    font-family: monospace;
+  }
+
+  .attach-btn {
+    padding: 0.5rem;
+    background-color: var(--CONTAINERBORDER);
+    border: none;
+    border-radius: 5px;
+    color: #0b0c10;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .showAdmin a {
+    font-family: cursive;
+    background-color: transparent;
+    font-size: large;
+    color: var(--CONTAINERBORDER);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+  }
+
+  .editorStatus, .download-btn {
+    background-color: transparent;
+    font-size: x-large;
+    color: var(--CONTAINERBORDER);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .leaveorDelete{
+
+  }
